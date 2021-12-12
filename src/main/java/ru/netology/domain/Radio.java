@@ -20,9 +20,7 @@ public class Radio {
             this.currentRadioStation = 0;
             return;
         }
-        if (currentRadioStation < 9) {
-            this.currentRadioStation = currentRadioStation + 1;
-        }
+        this.currentRadioStation = currentRadioStation + 1;
     }
 
     public void prevCurrentRadioStation() {
@@ -30,9 +28,7 @@ public class Radio {
             this.currentRadioStation = 9;
             return;
         }
-        if (currentRadioStation >= 1) {
             this.currentRadioStation = currentRadioStation - 1;
-        }
     }
 
     public int getCurrentRadioStation() {
@@ -57,21 +53,6 @@ public class Radio {
         }
         if (currentVolume < 0) {
             this.currentVolume = 0;
-        }
-    }
-
-    public void maxVolume() {
-        //макс громкость
-        int maxVolume = 10;
-        if (maxVolume >= 10) {
-            currentVolume = 10;
-        }
-    }
-
-    public void minVolume() {
-        int minVolume = 0;
-        if (minVolume <= 0) {
-            currentVolume = 0;
         }
     }
 

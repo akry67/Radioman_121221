@@ -99,34 +99,6 @@ class RadioTest {
 
 
     @Test
-    // достижение максимальной громкости
-    public void maxVolume() {
-        Radio radio = new Radio();
-        radio.maxVolume();
-
-        int expected = 10;
-        int actual = radio.currentVolume;
-
-        assertEquals(expected, actual);
-
-    }
-
-    @Test
-    // достижение минимальной громкости
-    public void minVolume() {
-        Radio radio = new Radio();
-        radio.minVolume();
-
-        int expected = 0;
-        int actual = radio.currentVolume;
-
-        assertEquals(expected, actual);
-
-
-    }
-
-
-    @Test
     //уменьшение звука
     public void underVolume() {
         Radio radio = new Radio();
