@@ -31,6 +31,19 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    //текущая радиостанция
+    public void getCurrentRadioStationLow() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStation(-11);
+
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+
+        assertEquals(expected, actual);
+
+    }
+
 
     @Test
     //следующая радиостанция
