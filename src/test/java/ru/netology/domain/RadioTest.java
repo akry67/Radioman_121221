@@ -10,7 +10,7 @@ class RadioTest {
     //текущая радиостанция
     public void getCurrentRadioStation() {
         Radio radio = new Radio();
-        radio.setCurrentRadioStation(-10);
+        radio.setCurrentRadioStation(10);
 
         int expected = 0;
         int actual = radio.getCurrentRadioStation();
