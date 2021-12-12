@@ -22,10 +22,10 @@ class RadioTest {
     //следующая радиостанция
     public void nextCurrentRadioStation() {
         Radio radio = new Radio();
-        radio.currentRadioStation = 9;
+        radio.currentRadioStation = 0;
         radio.nextCurrentRadioStation();
 
-        int expected = 0;
+        int expected = 1;
         int actual = radio.currentRadioStation;
 
         assertEquals(expected, actual);
@@ -37,10 +37,10 @@ class RadioTest {
     //предыдущая радиостанция
     public void prevCurrentRadioStation() {
         Radio radio = new Radio();
-        radio.currentRadioStation = 1;
+        radio.currentRadioStation = 9;
         radio.prevCurrentRadioStation();
 
-        int expected = 0;
+        int expected = 8;
         int actual = radio.currentRadioStation;
 
         assertEquals(expected, actual);
