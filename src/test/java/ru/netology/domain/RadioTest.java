@@ -22,10 +22,10 @@ class RadioTest {
     //следующая радиостанция
     public void nextCurrentRadioStation() {
         Radio radio = new Radio();
-        radio.currentRadioStation = 0;
+        radio.currentRadioStation = 9;
         radio.nextCurrentRadioStation();
 
-        int expected = 1;
+        int expected = 0;
         int actual = radio.currentRadioStation;
 
         assertEquals(expected, actual);
@@ -107,9 +107,9 @@ class RadioTest {
     //текущая громкость
     public void getCurrentVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(1110);
+        radio.setCurrentVolume(2);
 
-        int expected = 0;
+        int expected = 2;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
