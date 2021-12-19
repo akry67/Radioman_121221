@@ -1,8 +1,8 @@
 package ru.netology.domain;
 
 public class Radio {
-    public int currentRadioStation;
-    public int currentVolume;
+    private int currentRadioStation;
+    private int currentVolume;
 
     public void setCurrentRadioStation(int currentRadioStation) {
         //диапазон от 0 до 9 радиостанция
@@ -28,7 +28,7 @@ public class Radio {
             this.currentRadioStation = 9;
             return;
         }
-            this.currentRadioStation = currentRadioStation - 1;
+        this.currentRadioStation = currentRadioStation - 1;
     }
 
     public int getCurrentRadioStation() {
@@ -41,31 +41,29 @@ public class Radio {
         if (currentVolume < 10) {
             this.currentVolume = currentVolume + 1;
         }
-        if (currentVolume > 10) {
-            this.currentVolume = 10;
-        }
     }
+
 
     public void underVolume() {
         //уменьшение звука
         if (currentVolume > 0) {
             this.currentVolume = currentVolume - 1;
         }
-        if (currentVolume < 0) {
-            this.currentVolume = 0;
-        }
     }
 
     public void setCurrentVolume(int currentVolume) {
         //диапазон от 0 до 10 громкости
         if (currentVolume > 10) {
+            this.currentVolume = 10;
             return;
         }
         if (currentVolume < 0) {
+            this.currentVolume = 0;
             return;
         }
         this.currentVolume = currentVolume;
     }
+
 
     public int getCurrentVolume() {
         // дай текущую громкость
