@@ -3,42 +3,57 @@ package ru.netology.domain;
 public class Radio {
     private int currentRadioStation;
     private int currentVolume;
+    private int numberRadioStation = 9;
+    private int maxNumberRadioStation = getNumberRadioStation();
 
-    public void setCurrentRadioStation(int currentRadioStation) {
-        //диапазон от 0 до 9 радиостанция
-        if (currentRadioStation > 9) {
-            return;
-        }
-        if (currentRadioStation < 0) {
-            return;
-        }
-        this.currentRadioStation = currentRadioStation;
+    public Radio() {
+        // конструктор без параметров
     }
 
-    public void nextCurrentRadioStation() {
-        if (currentRadioStation >= 9) {
-            this.currentRadioStation = 0;
-            return;
-        }
-        this.currentRadioStation = currentRadioStation + 1;
+    public Radio(int numberRadioStation) {
+        // констурктор с параметрами кол-во радиостанций
+        this.numberRadioStation = numberRadioStation;
     }
 
-    public void prevCurrentRadioStation() {
-        if (currentRadioStation <= 0) {
-            this.currentRadioStation = 9;
-            return;
-        }
-        this.currentRadioStation = currentRadioStation - 1;
+    public Radio(int numberRadioStation, int maxNumberRadioStation) {
+        // кол-во радиостанций плюс максимальное значение
+        this.numberRadioStation = numberRadioStation;
+        this.maxNumberRadioStation = maxNumberRadioStation;
     }
 
-    public int getCurrentRadioStation() {
-        //getCurrentRadioStation - дай текущую радиостанцию
-        return currentRadioStation;
+    public int getNumberRadioStation() {
+        //get numberRadioStation
+        return numberRadioStation;
     }
+
+
+    public void nextNumberRadioStation() {
+        // следующая радиостанция по новым параметрам
+        if (numberRadioStation >= maxNumberRadioStation) {
+            this.numberRadioStation = 0;
+            return;
+        }
+        if (numberRadioStation >= 0) {
+            this.numberRadioStation = numberRadioStation + 1;
+        }
+    }
+
+    public void prevNumberRadioStation() {
+        // предыдущая радиостанция
+        if (numberRadioStation <= 0) {
+            this.numberRadioStation = maxNumberRadioStation;
+            return;
+        }
+        if (numberRadioStation > 0) {
+            this.numberRadioStation = numberRadioStation - 1;
+        }
+
+    }
+
 
     public void moreVolume() {
         //увеличение звука
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             this.currentVolume = currentVolume + 1;
         }
     }
@@ -53,8 +68,8 @@ public class Radio {
 
     public void setCurrentVolume(int currentVolume) {
         //диапазон от 0 до 10 громкости
-        if (currentVolume > 10) {
-            this.currentVolume = 10;
+        if (currentVolume > 100) {
+            this.currentVolume = 100;
             return;
         }
         if (currentVolume < 0) {
