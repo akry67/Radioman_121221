@@ -34,7 +34,7 @@ class RadioTest {
     @Test
     // next проверка при достижении макс радиостанции переключение на ноль
     public void maxNubmerRadioStation() {
-        Radio radio = new Radio(23, 23);
+        Radio radio = new Radio(23);
         radio.nextNumberRadioStation();
 
         assertEquals(0, radio.getNumberRadioStation());
@@ -43,7 +43,7 @@ class RadioTest {
     @Test
     // следующая станция
     public void nextNumberRadioStation() {
-        Radio radio = new Radio(3, 40);
+        Radio radio = new Radio(3);
         radio.nextNumberRadioStation();
 
         assertEquals(4, radio.getNumberRadioStation());
@@ -52,7 +52,7 @@ class RadioTest {
     @Test
     // следующая станция
     public void nextNullNumberRadioStation() {
-        Radio radio = new Radio(0, 40);
+        Radio radio = new Radio(0);
         radio.nextNumberRadioStation();
 
         assertEquals(1, radio.getNumberRadioStation());
@@ -61,16 +61,16 @@ class RadioTest {
     @Test
     // предыдущая радиостанция если текущая 0
     public void prevNullNumberRadioStation() {
-        Radio radio = new Radio(0, 22);
+        Radio radio = new Radio(0);
         radio.prevNumberRadioStation();
 
-        assertEquals(22, radio.getNumberRadioStation());
+        assertEquals(9, radio.getNumberRadioStation());
     }
 
     @Test
     // переключение на предыдущую станцию
     public void prevNumberRadioStation() {
-        Radio radio = new Radio(1, 22);
+        Radio radio = new Radio(1);
         radio.prevNumberRadioStation();
 
         assertEquals(0, radio.getNumberRadioStation());

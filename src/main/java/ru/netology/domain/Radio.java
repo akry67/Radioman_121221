@@ -15,11 +15,6 @@ public class Radio {
         this.numberRadioStation = numberRadioStation;
     }
 
-    public Radio(int numberRadioStation, int maxNumberRadioStation) {
-        // кол-во радиостанций плюс максимальное значение
-        this.numberRadioStation = numberRadioStation;
-        this.maxNumberRadioStation = maxNumberRadioStation;
-    }
 
     public int getNumberRadioStation() {
         //get numberRadioStation
