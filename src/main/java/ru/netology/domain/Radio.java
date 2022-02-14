@@ -1,10 +1,11 @@
 package ru.netology.domain;
 
 public class Radio {
+
+
     private int currentRadioStation;
     private int currentVolume;
     private int numberRadioStation = 9;
-    private int maxNumberRadioStation = getNumberRadioStation();
 
     public Radio() {
         // конструктор без параметров
@@ -15,6 +16,13 @@ public class Radio {
         this.numberRadioStation = numberRadioStation;
     }
 
+    public void setCurrentRadioStation(int currentRadioStation) {
+        this.currentRadioStation = currentRadioStation;
+    }
+
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
+    }
 
     public int getNumberRadioStation() {
         //get numberRadioStation
@@ -24,23 +32,23 @@ public class Radio {
 
     public void nextNumberRadioStation() {
         // следующая радиостанция по новым параметрам
-        if (numberRadioStation >= maxNumberRadioStation) {
-            this.numberRadioStation = 0;
+        if (this.currentRadioStation >= this.numberRadioStation) {
+            this.currentRadioStation = 0;
             return;
         }
-        if (numberRadioStation >= 0) {
-            this.numberRadioStation = numberRadioStation + 1;
+        if (this.currentRadioStation >= 0) {
+            this.currentRadioStation = this.currentRadioStation + 1;
         }
     }
 
     public void prevNumberRadioStation() {
         // предыдущая радиостанция
-        if (numberRadioStation <= 0) {
-            this.numberRadioStation = maxNumberRadioStation;
+        if (this.currentRadioStation <= 0) {
+            this.currentRadioStation = this.numberRadioStation;
             return;
         }
-        if (numberRadioStation > 0) {
-            this.numberRadioStation = numberRadioStation - 1;
+        if (this.currentRadioStation > 0) {
+            this.currentRadioStation = this.currentRadioStation - 1;
         }
 
     }
