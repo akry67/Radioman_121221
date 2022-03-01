@@ -16,8 +16,14 @@ public class Radio {
         this.numberRadioStation = numberRadioStation;
     }
 
-    public void setCurrentRadioStation(int currentRadioStation) {
-        this.currentRadioStation = currentRadioStation;
+    public void setCurrentRadioStation(int numberRadioStation) {
+        if (currentRadioStation > numberRadioStation) {
+            return;
+        }
+        if (currentRadioStation < 0) {
+            return;
+        }
+        this.currentRadioStation = numberRadioStation;
     }
 
     public int getCurrentRadioStation() {
