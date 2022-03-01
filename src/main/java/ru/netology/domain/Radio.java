@@ -1,5 +1,13 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class Radio {
 
 
@@ -7,7 +15,8 @@ public class Radio {
     private int currentVolume;
     private int numberRadioStation = 9;
 
-    public Radio() {
+
+     public Radio() {
         // конструктор без параметров
     }
 
