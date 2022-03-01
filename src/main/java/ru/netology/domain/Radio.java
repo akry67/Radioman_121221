@@ -9,72 +9,98 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class Radio {
+
+
     private int currentRadioStation;
     private int currentVolume;
     private int numberRadioStation = 9;
-    private int maxNumberRadioStation = getNumberRadioStation();
 
+
+     public Radio() {
+        // конструктор без параметров
+    }
 
     public Radio(int numberRadioStation) {
+        // констурктор с параметрами кол-во радиостанций
         this.numberRadioStation = numberRadioStation;
     }
 
-    public Radio(int numberRadioStation, int maxNumberRadioStation) {
-        this.numberRadioStation = numberRadioStation;
-        this.maxNumberRadioStation = maxNumberRadioStation;
+    public void setCurrentRadioStation(int numberRadioStation) {
+        if (currentRadioStation > numberRadioStation) {
+            return;
+        }
+        if (currentRadioStation < 0) {
+            return;
+        }
+        this.currentRadioStation = numberRadioStation;
+    }
+
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
     }
 
     public int getNumberRadioStation() {
-        return this.numberRadioStation;
+        //get numberRadioStation
+        return numberRadioStation;
     }
 
-    public void nextNumberRadioStation() {
-        if (this.numberRadioStation >= this.maxNumberRadioStation) {
-            this.numberRadioStation = 0;
-        } else {
-            if (this.numberRadioStation >= 0) {
-                ++this.numberRadioStation;
-            }
 
+    public void nextNumberRadioStation() {
+        // следующая радиостанция по новым параметрам
+        if (this.currentRadioStation >= this.numberRadioStation) {
+            this.currentRadioStation = 0;
+            return;
+        }
+        if (this.currentRadioStation >= 0) {
+            this.currentRadioStation = this.currentRadioStation + 1;
         }
     }
 
     public void prevNumberRadioStation() {
-        if (this.numberRadioStation <= 0) {
-            this.numberRadioStation = this.maxNumberRadioStation;
-        } else {
-            if (this.numberRadioStation > 0) {
-                --this.numberRadioStation;
-            }
-
+        // предыдущая радиостанция
+        if (this.currentRadioStation <= 0) {
+            this.currentRadioStation = this.numberRadioStation;
+            return;
         }
+        if (this.currentRadioStation > 0) {
+            this.currentRadioStation = this.currentRadioStation - 1;
+        }
+
     }
+
 
     public void moreVolume() {
-        if (this.currentVolume < 100) {
-            ++this.currentVolume;
+        //увеличение звука
+        if (currentVolume < 100) {
+            this.currentVolume = currentVolume + 1;
         }
-
     }
 
-    public void underVolume() {
-        if (this.currentVolume > 0) {
-            --this.currentVolume;
-        }
 
+    public void underVolume() {
+        //уменьшение звука
+        if (currentVolume > 0) {
+            this.currentVolume = currentVolume - 1;
+        }
     }
 
     public void setCurrentVolume(int currentVolume) {
+        //диапазон от 0 до 10 громкости
         if (currentVolume > 100) {
             this.currentVolume = 100;
-        } else if (currentVolume < 0) {
-            this.currentVolume = 0;
-        } else {
-            this.currentVolume = currentVolume;
+            return;
         }
+        if (currentVolume < 0) {
+            this.currentVolume = 0;
+            return;
+        }
+        this.currentVolume = currentVolume;
     }
 
+
     public int getCurrentVolume() {
-        return this.currentVolume;
+        // дай текущую громкость
+        return currentVolume;
     }
+
 }

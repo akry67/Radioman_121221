@@ -34,46 +34,60 @@ class RadioTest {
     @Test
     // next проверка при достижении макс радиостанции переключение на ноль
     public void maxNubmerRadioStation() {
-        Radio radio = new Radio(23, 23);
+        Radio radio = new Radio(23);
+        radio.setCurrentRadioStation(100);
         radio.nextNumberRadioStation();
 
-        assertEquals(0, radio.getNumberRadioStation());
+        assertEquals(0, radio.getCurrentRadioStation());
     }
 
     @Test
     // следующая станция
     public void nextNumberRadioStation() {
-        Radio radio = new Radio(3, 40);
+        Radio radio = new Radio(25);
+        radio.setCurrentRadioStation(25);
         radio.nextNumberRadioStation();
 
-        assertEquals(4, radio.getNumberRadioStation());
+        assertEquals(0, radio.getCurrentRadioStation());
     }
+
+    @Test
+    public void setCurrentRadioStation() {
+        Radio radio = new Radio(3);
+        radio.setCurrentRadioStation(100);
+
+        assertEquals(100, radio.getCurrentRadioStation());
+    }
+
 
     @Test
     // следующая станция
     public void nextNullNumberRadioStation() {
-        Radio radio = new Radio(0, 40);
+        Radio radio = new Radio(10);
+        radio.setCurrentRadioStation(0);
         radio.nextNumberRadioStation();
 
-        assertEquals(1, radio.getNumberRadioStation());
+        assertEquals(1, radio.getCurrentRadioStation());
     }
 
     @Test
     // предыдущая радиостанция если текущая 0
     public void prevNullNumberRadioStation() {
-        Radio radio = new Radio(0, 22);
+        Radio radio = new Radio(100);
+        radio.setCurrentRadioStation(0);
         radio.prevNumberRadioStation();
 
-        assertEquals(22, radio.getNumberRadioStation());
+        assertEquals(100, radio.getCurrentRadioStation());
     }
 
     @Test
     // переключение на предыдущую станцию
     public void prevNumberRadioStation() {
-        Radio radio = new Radio(1, 22);
+        Radio radio = new Radio(80);
+        radio.setCurrentRadioStation(77);
         radio.prevNumberRadioStation();
 
-        assertEquals(0, radio.getNumberRadioStation());
+        assertEquals(76, radio.getCurrentRadioStation());
     }
 
 
