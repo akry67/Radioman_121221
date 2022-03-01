@@ -16,7 +16,7 @@ public class Radio {
     private int numberRadioStation = 9;
 
 
-     public Radio() {
+    public Radio() {
         // конструктор без параметров
     }
 
