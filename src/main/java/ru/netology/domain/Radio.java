@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+
 
 public class Radio {
 
@@ -16,7 +16,7 @@ public class Radio {
     private int numberRadioStation = 9;
 
 
-     public Radio() {
+    public Radio() {
         // конструктор без параметров
     }
 
